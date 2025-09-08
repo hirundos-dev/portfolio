@@ -1,0 +1,24 @@
+
+:root {
+  --ids__text-RGB:        5, 5, 5;
+  --ids__text-mute-RGB:        153, 156, 158;
+  --ids__link-RGB:        0, 100, 240;
+  --ids__hover-RGB:       0, 200, 0;
+  --ids__accent-RGB:      253, 47, 75;
+  --ids__code-RGB:        115, 120, 125;
+  --ids__mark-RGB:        255, 225, 0;
+--ids__border-RGB: 246, 246, 248;
+  --ids__surface-RGB:     238, 240, 242;
+  --ids__background-RGB:  255, 255, 255;
+  --ids__background-card-RGB: 247, 247, 245;
+  --ids__hover-card-RGB: 202, 236, 89;
+  --color-g-main-rgb: 86,171,47;    /* #ffcc00 */
+  --color-g-second-rgb: 168, 224, 99;    /* #9c27b0 */
+  --hover-gradient: linear-gradient(30deg, rgba(var(--color-g-main-rgb), 1), rgba(var(--color-g-second-rgb), 0.8)); 
+  
+}
+
+body {
+  color: rgba(var(--ids__text-RGB), 1);
+  background-color: rgba(var(--ids__background-RGB), 1);
+}

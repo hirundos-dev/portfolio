@@ -1,0 +1,31 @@
+@import 'lib/photoswipe.css';
+
+ids-gallery, .ids__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
+  gap: 1em;
+
+  @media (min-width: 40em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  figure {
+    box-sizing: border-box;
+
+    img {
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    a:hover,
+    a:focus-visible {
+      opacity: 0.9;
+    }
+
+    &:focus-within:has(a:focus-visible) {
+      outline: 2px solid rgb(var(--ids__link-RGB));
+      outline-offset: 2px;
+    }
+  }
+}

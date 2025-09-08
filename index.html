@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Андрей Ласточкин — UX/UI-дизайнер</title>
+    <link rel="icon" type="image/png" href="images/favicon-inverted.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/settings.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/ids.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+  </head>
+
+  <body class="ids">
+    <header class="topbar">
+      <div class="topbar__container">
+        <div class="topbar__name">Андрей Ласточкин</div>
+        <div class="topbar__telegram">
+          <a href="https://t.me/hirundos" target="_blank" rel="noopener noreferrer">Телеграм</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="ids__wrapper">
+
+        <div class="section" id="color">
+          
+          <div class="ids__space L"></div>
+          
+          <div class="ids__text-width">
+            <h2>Превращаю сложные процессы в&nbsp;понятный и&nbsp;удобный интерфейс, учитывая цели бизнеса и&nbsp;потребности пользователей</h2>
+          </div>
+
+          <div class="ids__space M"></div>
+
+        <div class="section">
+          <a href="pages\project-1\index.html">
+            <h5>Региональный сервис для записи к&nbsp;врачу</h5>
+            <div class="image-block M">
+           
+                <img src="images/gallery/Component.png" class="image-block__img">
+            
+            </div></a>
+            </div>
+
+            <div class="ids__space S"></div>
+
+            <div class="ids__sequence XL gap-S">
+              <div class="ids__sequence-item">
+                 <a href="pages\project-2\index.html">
+            <div class="image-block S" style="--color-g-main-rgb: 253, 47, 75; --color-g-second-rgb: 255,195,113;">
+            <img src="images/gallery/image.png" class="image-block__img">
+           
+                </div>
+                <div class="ids__space XS"></div>
+
+                <h5>Приложение для анализа личности</h5></a>
+              </div>
+              <div class="ids__sequence-item">
+                <a href="pages\project-2\index.html">
+                                <div class="image-block S">
+                  <img src="images/gallery/image.png" class="image-block__img">
+                  
+                </div>
+                 <div class="ids__space XS"></div>
+                <h5>Боевой UI-kit со&nbsp;спецификациями</h5></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </main>
+
+    
+
+    <script>
+      let observer = new IntersectionObserver(
+        (elements) => {
+          elements.forEach((el) => {
+            if (el.intersectionRatio > 0.3) {
+              el.target.classList.remove("sleep");
+            } else {
+              el.target.classList.add("sleep");
+            }
+          });
+        },
+        { threshold: [0, 0.5] }
+      );
+
+      document.querySelectorAll(".ids__snooze").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+    
+    
+    <!-- Футер с погодой и временем -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__left">
+          <div class="footer__weather" id="weather-info">
+            <div class="weather-title caption">Погода за бортом</div>
+            <div class="weather-data">
+            <span class="weather-desc caption">--</span>
+            <span class="caption">, </span>
+            <span class="weather-temp caption">--°C</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer__right">
+          <div class="footer__time" id="kaliningrad-time">
+            <div class="location caption">Калининград, Россия</div>
+            <div class="time-date">
+              <span class="time caption">--:--</span>
+              <span class="caption">, </span>
+              <span class="date caption">--.--.----</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+<script src="lib/kaliningrad-time-weather.js" defer></script>
+  </body>
+</html>
