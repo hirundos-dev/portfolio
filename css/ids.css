@@ -54,7 +54,7 @@
   
   /* Отступ для контента под фиксированным topbar */
   & main {
-    padding-top: 5rem;
+    padding-top: 3cap;
   }
   
   /* Caption стиль для подписей */
@@ -326,87 +326,44 @@
 }
 
 
-  & .image-block {
-    width: 100%;
-    min-height: 400px; /* Минимальная высота */
-    aspect-ratio: 16/9; /* Соотношение сторон */
-    display: flex;
-    align-items: flex-end; /* Прижимаем к нижнему краю */
-    justify-content: center;
-    background: rgba(var(--ids__background-card-RGB), 1); /* Исходный фон */
-    transition: 
-      background 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), /* Изменили на background */
-      transform 0.6s ease;
-    border-radius: 1em;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative; /* Для псевдоэлемента */
-    
-    /* Адаптивность для мобильных устройств */
-    @media (width < 767px) {
-      aspect-ratio: 4/3; /* Более квадратное соотношение на мобильных */
-      min-height: 300px;
-    }
-    
-    @media (width < 480px) {
-      aspect-ratio: 1/1; /* Квадратное на маленьких экранах */
-      min-height: 250px;
-    }
-
-    /* Псевдоэлемент для плавного градиента */
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--hover-gradient);
-      opacity: 0;
-      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: 1;
-    }
-
-
-    &:hover {
-      &::before {
-        opacity: 1;
-      }
-    }
-
-    /* Контент должен быть выше градиента */
-    & > * {
-      position: relative;
-      z-index: 2;
-    }
-  }
-
-.image-block__img {
-  width: 85%; /* Ширина изображения */
-  height: 85%; /* Высота изображения */
-  object-fit: contain; /* Сохраняет пропорции */
-  display: block;
+.image-block {
+  border-radius: 1em;
+  overflow: hidden; /* Важно для сохранения скругленных углов */
+  display: inline-block;
   
-  /* Адаптивность для мобильных устройств */
-  @media (width < 767px) {
-    width: 90%;
-    height: 90%;
-  }
-  
-  @media (width < 480px) {
-    width: 95%;
-    height: 95%;
-  }
-  &:hover {
-    width: 80%; /* Ширина изображения */
-  height: 80%;    /* лёгкий блюр */
-    }
 }
+
+.main_img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transform: scale(1.05);
+}
+#project-img a {
+   text-decoration: none;
+  }
+  
+#project-img:hover .main_img {
+  transform: scale(1);
+  }
+
+#project-img a {
+  color: inherit ;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#project-img:hover a h5 {
+  color: rgb(var(--ids__hover-RGB)) !important;
+}
+
 .project-navigation {
   display: flex;
   gap: 1em;
 }
-
 
  
 .project-card {
