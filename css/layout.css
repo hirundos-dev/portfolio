@@ -115,6 +115,16 @@
     }
   }
 
+   &.M {
+    .ids__sequence-item {
+      --columns: 4;
+
+      @media (width < 767px) {
+        --columns: 1;
+      }
+    }
+  }
+
   &.S {
     .ids__sequence-item {
       --columns: 6;
