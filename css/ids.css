@@ -112,7 +112,7 @@
       
       /* Состояние при наведении */
       &:hover {
-        color: rgb(var(--ids__hover-RGB),1);
+        color: rgb(var(--ids__accent-var-RGB),1);
       }
   
     }
@@ -415,11 +415,11 @@
 
 .project-card:hover,
 .project-card:focus-visible {
-  background: rgba(var(--ids__link-RGB), 0.1);
-  color: rgba(var(--ids__link-RGB), 1);
+  background: rgba(var(--ids__mark-RGB), 0.1);
+  color: rgba(var(--ids__mark-RGB), 1);
   }
 .project-card:hover svg {
-  fill:  rgba(var(--ids__link-RGB), 1);
+  fill:  rgba(var(--ids__mark-RGB), 1);
 }
 
 .label {
@@ -433,7 +433,7 @@
   gap: 0.5em;
 }
 .project-card:hover .label {
-  color: rgba(var(--ids__link-RGB), 1);
+  color: rgba(var(--ids__mark-RGB), 1);
   }
 
 .label svg {

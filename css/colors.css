@@ -1,16 +1,17 @@
 
 :root {
-  --ids__text-RGB:        5, 5, 5;
-  --ids__inverted-RGB:        255, 255, 255;
-  --ids__text-mute-RGB:        153, 156, 158;
-  --ids__link-RGB:        0, 100, 240;
-  --ids__hover-RGB:       0, 200, 0;
+  --ids__text-RGB:        5, 5, 5;              /* Основной текст */
+  --ids__inverted-RGB:        255, 255, 255;    /* Инвертированный текст */
+  --ids__text-mute-RGB:        153, 156, 158;   /* Второстепенный текст */
+
+  --ids__link-RGB:        0, 100, 240;          /* Ссылка */
+  --ids__hover-RGB:       0, 200, 0; 
   --ids__accent-RGB:      253, 47, 75;
- --ids__mark-mute-RGB:      207, 190, 255;
-  
+  --ids__mark-mute-RGB:      207, 190, 255;
+  --ids__accent-var-RGB: 255, 225, 0;
   --ids__code-RGB:        115, 120, 125;
   --ids__mark-RGB:        143, 103, 255;
---ids__border-RGB: 246, 246, 248;
+  --ids__border-RGB: 246, 246, 248;
   --ids__surface-RGB:     238, 240, 242;
   --ids__background-RGB:  255, 255, 255;
   --ids__background-card-RGB: 247, 247, 245;
@@ -22,6 +23,6 @@
 }
 
 body {
-  color: rgba(var(--ids__text-RGB), 1);
+  color: rgba(var(--ids__text-RGB), 1); 
   background-color: rgba(var(--ids__background-RGB), 1);
 }
