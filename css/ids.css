@@ -27,12 +27,26 @@
     }
     
     & .topbar__name {
-      font-size: 1em;
-      font-weight: 600;
+      font-size: 1.2em;
+      font-weight: 500;
       color: rgba(var(--ids__text-RGB), 1);
+      display: flex;
+  align-items: center;
+  gap: 12px;
     }
     
     & .topbar__telegram {
+
+transition: transform 0.2s ease-in-out; 
+
+  &:hover {
+        background-color: rgba(var(--ids__background-RGB),0.25);
+        transform: scale(1.05);
+      }
+  &:active {
+  transform: scale(1); /* Увеличение при клике */
+  }
+
       & a {
         font-size: 1em;
         color: rgba(var(--ids__text-RGB), 1);
@@ -41,17 +55,54 @@
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
         background: rgba(var(--ids__background-card-RGB), 1);
-        transition: all 0.3s ease;
+        
         
         &:hover {
-          background: rgba(var(--ids__link-RGB), 0.1);
-          color: rgba(var(--ids__link-RGB), 1);
-          transform: translateY(-2px);
+          background: rgba(var(--ids__mark-RGB), 0.1);
+          color: rgba(var(--ids__mark-RGB), 1);
+       
         }
       }
+
+
+
+
     }
   }
-  
+
+ & .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+& .icon-contact{
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(var(--ids__background-RGB),0.2);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: transform 0.2s ease-in-out; 
+
+  &:hover {
+        background-color: rgba(var(--ids__background-RGB),0.25);
+        transform: scale(1.1);
+      }
+  &:active {
+  transform: scale(1); /* Увеличение при клике */
+}
+  }
+
+  & .more-contacts{
+  justify-content: right;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  }
+
   /* Отступ для контента под фиксированным topbar */
   & main {
     padding-top: 3cap;
@@ -63,7 +114,7 @@
     font-family: "Root UI";
     font-weight: 450;
     
-    line-height: 1.2;
+    line-height: 1.4;
   }
   
  
@@ -73,10 +124,10 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(var(--ids__text-RGB), 0.9);
+    background: rgba(var(--ids__text-RGB), 0.85);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding-top: 1.5em;
+    padding-top: 2em;
     padding-bottom: 0.5em;
     
     
@@ -96,70 +147,48 @@
     
     & .footer__left {
       display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.1rem;
-         color: rgba(var(--ids__inverted-RGB), 0.9);
-          font-size: 0.7em;
-        font-weight: 450;
-        line-height: 1.2;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.1rem;
+      color: rgba(var(--ids__inverted-RGB), 0.9);
+      font-size: 1.2em;
+      font-weight: 500;
+      line-height: 1.2;
 
 
-         a {
-      color: rgb(var(--ids__mark-mute-RGB),1);
-      text-decoration: none; /* Убирает подчеркивание */
-      transition: opacity 0.2s ease-in-out; /* Плавное изменение прозрачности */
-      
-      /* Состояние при наведении */
-      &:hover {
-        color: rgb(var(--ids__accent-var-RGB),1);
+      #text23 {
+font-size: 0.7em;
+      font-weight: 400;
+      line-height: 1.2;
+      color: rgba(var(--ids__inverted-RGB), 0.6);
       }
-  
     }
     }
     
-    & .footer__right {
-      & .footer__time {
-        display: flex;
+& .footer__right {
+      display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: 0.1rem;
-        color: rgba(var(--ids__inverted-RGB), 0.9);
-        
-        
-        
-        
-        & .location {
-          text-align: right;
-          color: rgba(var(--ids__text-mute-RGB), 1);
-        }
-        
-        & .time-date {
-          display: flex;
-          align-items: center;
-           font-size: 0.7em;
-        font-weight: 450;
-        line-height: 1.2;
-        }
-      }
-      & .footer__weather {
+        gap: 0.5rem;
+ }
+
+& .footer_time_weather {
         display: flex;
         align-items: flex-end;
         gap: 0.1rem;
-        color: rgba(var(--ids__inverted-RGB), 0.9);
+        color: rgba(var(--ids__inverted-RGB), 0.6);
         font-size: 0.7em;
-        font-weight: 450;
+        font-weight: 400;
         line-height: 1.2;
-
-        
-        
-       
-        & .weather-data {
-          display: flex;
-          align-items: center;
         }
-      }
-    }
+  
+  & .version-box { 
+    display: flex;
+    justify-content: center;
+    font-size: 0.6em;
+    font-weight: 400;
+    line-height: 1.2;
+    color: rgba(var(--ids__inverted-RGB), 0.3);
   }
   
   /* Отступ для контента над фиксированным footer */
@@ -214,6 +243,12 @@
     &.S {
       font-size: 2.4em;
       font-weight: 650;
+      line-height:1.1;
+
+      @media (width < 767px) {
+      font-size: 1.6em;
+        
+    }
     }
     &.XS {
       font-size: 1.5em;
@@ -237,6 +272,13 @@
     font-size: 1.5em;
     line-height: calc(var(--ids__density) / 1.1);
     margin-bottom: 0.6em;
+
+ @media (width < 767px) {
+      font-size: 1.2em;
+        
+    }
+
+
   }
 
   & h4 {
