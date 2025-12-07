@@ -76,6 +76,29 @@ transition: transform 0.2s ease-in-out;
   border-radius: 14px;
   object-fit: cover;
 }
+ & .logo {
+  width: auto;
+  height:36px;
+  object-fit: cover;
+  padding-bottom: 0.2em;
+}
+
+
+ & .tag_row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 12px;
+}
+
+}
+ & .about_bcs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
+
 & .icon-contact{
   box-sizing: border-box;
   width: 40px;
@@ -113,7 +136,7 @@ transition: transform 0.2s ease-in-out;
     font-size: 0.7em;
     font-family: "Root UI";
     font-weight: 450;
-    
+    max-width: 640px;
     line-height: 1.4;
   }
   
@@ -214,8 +237,8 @@ font-size: 0.7em;
     transition: color 0.5s ease, text-decoration 0.5s ease;
 
     &:hover {
-      color: rgb(var(--ids__hover-RGB));
-      text-decoration-color: rgba(var(--ids__hover-RGB), 0.2);
+      color: rgb(var(--ids__mark-RGB));
+      text-decoration-color: rgba(var(--ids__mark-RGB), 0.2);
       transition: color 0s ease, text-decoration 0s ease;
     }
   }
@@ -229,6 +252,13 @@ font-size: 0.7em;
       line-height: 1.2;
     }
   }
+
+  p.label {
+   font-size: 0.8em;
+      line-height: 1.2;
+      font-weight: 500;   
+}
+
 
   & h1,
   & h2,
@@ -377,8 +407,8 @@ font-size: 0.7em;
 
 .custome {
     width: 100%;
-    min-height: 400px; /* Минимальная высота */
-    aspect-ratio: 16/9; /* Соотношение сторон */
+     /* Минимальная высота */
+   
     display: flex;
     align-items: center; /* Прижимаем к нижнему краю */
     justify-content: center;
@@ -427,11 +457,11 @@ font-size: 0.7em;
   object-fit: contain;
   display: block;
   transition: transform 0.3s ease, filter 0.3s ease;
-  transform: scale(1.05);
+  transform: scale(1.00);
 }
   
 #project-img:hover .main_img {
-  transform: scale(1);
+  transform: scale(1.035);
   }
 
 #project-img a {
@@ -576,7 +606,7 @@ color: rgba(var(--ids__text-mute-RGB), 1) ;
     }
 
   & code {
-    font-size: 0.9em;
+    font-size: 0.7em;
     font-family: "Root UI";
     letter-spacing: 0.02em;
     font-weight: 450;
@@ -632,5 +662,5 @@ color: rgba(var(--ids__text-mute-RGB), 1) ;
     border-bottom: 0;
   }
 
-}
+
 
