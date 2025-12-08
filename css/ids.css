@@ -417,17 +417,7 @@ font-size: 0.7em;
     box-sizing: border-box;
     overflow: hidden;
     position: relative; /* Для псевдоэлемента */
-    
-    /* Адаптивность для мобильных устройств */
-    @media (width < 767px) {
-      aspect-ratio: 4/3; /* Более квадратное соотношение на мобильных */
-      min-height: 300px;
-    }
-    
-    @media (width < 480px) {
-      aspect-ratio: 1/1; /* Квадратное на маленьких экранах */
-      min-height: 250px;
-    }
+   
     }
 
  .sleepy {
