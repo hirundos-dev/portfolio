@@ -12,6 +12,15 @@
     <title>Андрей Лынник — Портфолио</title>
     <link rel="icon" type="image/png" href="images/favicon-inverted.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
+    <link rel="preconnect" href="https://api.open-meteo.com" crossorigin />
+    <link
+      rel="preload"
+      href="fonts/pt-root-ui_vf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="css/colors.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/settings.css" />
@@ -69,7 +78,7 @@
         <div class="section" id="project-img">
   <a href="pages\project-3\index.html">
     <div class="image-block">
-      <img src="images/gallery/project-3.png" class="main_img"><!--style="filter:blur(5px);-->
+      <img src="images/gallery/project-3.png" loading="lazy" decoding="async" class="main_img"><!--style="filter:blur(5px);-->
     </div>
     <div class="ids__space S"></div>
     <div class="ids__text-width">
@@ -88,7 +97,7 @@
         <div class="section" id="project-img">
   <a href="pages\project-4\index.html">
     <div class="image-block">
-      <img src="images/gallery/project-4.png" class="main_img"><!--style="filter:blur(5px);-->
+      <img src="images/gallery/project-4.png" loading="lazy" decoding="async" class="main_img"><!--style="filter:blur(5px);-->
     </div>
     <div class="ids__space S"></div>
     <div class="ids__text-width">
@@ -108,7 +117,7 @@
             
             <div class="image-block">
            
-                <img src="images/gallery/project-1.png" loading="lazy" class="main_img" >
+                <img src="images/gallery/project-1.png" loading="lazy" decoding="async" class="main_img" >
             
             </div>
                      <div class="ids__space S"></div>
@@ -126,7 +135,7 @@
         <div class="section" id="project-img">
   <a href="pages\project-5\index.html">
     <div class="image-block">
-      <img src="images/gallery/project-5.png" class="main_img"><!--style="filter:blur(5px);-->
+      <img src="images/gallery/project-5.png" loading="lazy" decoding="async" class="main_img"><!--style="filter:blur(5px);-->
     </div>
     <div class="ids__space S"></div>
     <div class="ids__text-width">
@@ -144,7 +153,7 @@
           <div class="section" id="project-img">
             <a href="pages\project-2\index.html">
       <div class="image-block">
-      <img src="images/gallery/project-2.png" loading="lazy" class="main_img">
+      <img src="images/gallery/project-2.png" loading="lazy" decoding="async" class="main_img">
     </div>
     <div class="ids__space S"></div>
     <div class="ids__text-width">
@@ -233,11 +242,11 @@
   <div class="ids__space L"></div>
   <div class="version-box"> 
     <p>Сделано с душой, версия <span class="version-text"></span></p>
-
+    
   </div>
 </footer>
 
-<script src="lib/version.js"></script>
+<script src="lib/version.js" defer></script>
 <script src="lib/kaliningrad-time-weather.js" defer></script>
   </body>
 </html>
