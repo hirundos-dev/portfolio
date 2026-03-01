@@ -12,6 +12,15 @@
     <title>Palka DS / Портфолио Андрей Лынник</title>
     <link rel="icon" type="image/png" href="../../images/favicon-inverted.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
+    <link rel="preconnect" href="https://api.open-meteo.com" crossorigin />
+    <link
+      rel="preload"
+      href="../../fonts/pt-root-ui_vf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="../../css/colors.css" />
     <link rel="stylesheet" href="../../css/normalize.css" />
     <link rel="stylesheet" href="../../css/settings.css" />
@@ -113,16 +122,16 @@
         </div>
             <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-01.png" style="border-radius: 1em;">
+          <img src="assets/img-01.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
            <div class="ids__space S"></div>
          
           <figure>
-          <img src="assets/img-02.png" style="border-radius: 1em;">
+          <img src="assets/img-02.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
            <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-03.png" style="border-radius: 1em;">
+          <img src="assets/img-03.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
 </div>
       
@@ -143,15 +152,15 @@
         </div>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-04.png" style="border-radius: 1em;">
+          <img src="assets/img-04.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-05.png" style="border-radius: 1em;">
+          <img src="assets/img-05.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-06.png" style="border-radius: 1em;">
+          <img src="assets/img-06.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
 </div>
 
@@ -166,7 +175,7 @@
             На&nbsp;платном тарифе удобнее использовать нативное переключение тем через токены</p></div>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-07.png" style="border-radius: 1em;">
+          <img src="assets/img-07.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
 </div>
 
@@ -185,7 +194,7 @@
           </div>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-08.png" style="border-radius: 1em;">
+          <img src="assets/img-08.png" loading="lazy" decoding="async" style="border-radius: 1em%;">
           </figure>
 </div>
 
@@ -207,11 +216,11 @@
           </div>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-09.png" style="border-radius: 1em;">
+          <img src="assets/img-09.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-10.png" style="border-radius: 1em;">
+          <img src="assets/img-10.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
 </div>
 
@@ -236,23 +245,23 @@
           </div>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-11.png" style="border-radius: 1em;">
+          <img src="assets/img-11.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-12.png" style="border-radius: 1em;">
+          <img src="assets/img-12.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-13.png" style="border-radius: 1em;">
+          <img src="assets/img-13.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
           <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-14.png" style="border-radius: 1em;">
+          <img src="assets/img-14.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
            <div class="ids__space S"></div>
           <figure>
-          <img src="assets/img-15.png" style="border-radius: 1em;">
+          <img src="assets/img-15.png" loading="lazy" decoding="async" style="border-radius: 1em;">
           </figure>
           
 </div>
@@ -335,9 +344,9 @@
   </div>
 </footer>
     
-<script src="../../lib/version.js"></script>
-    <script src="../../lib/photoswipe.umd.min.js"></script>
-    <script src="../../lib/photoswipe-lightbox.umd.min.js"></script>
+<script src="../../lib/version.js" defer></script>
+    <script src="../../lib/photoswipe.umd.min.js" defer></script>
+    <script src="../../lib/photoswipe-lightbox.umd.min.js" defer></script>
     <script type="module">
       /**
        * @param {HTMLDivElement} node
