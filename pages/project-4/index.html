@@ -12,6 +12,15 @@
     <title>БКС / Портфолио Андрей Лынник</title>
     <link rel="icon" type="image/png" href="../../images/favicon-inverted.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
+    <link rel="preconnect" href="https://api.open-meteo.com" crossorigin />
+    <link
+      rel="preload"
+      href="../../fonts/pt-root-ui_vf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="../../css/colors.css" />
     <link rel="stylesheet" href="../../css/normalize.css" />
     <link rel="stylesheet" href="../../css/settings.css" />
@@ -66,7 +75,7 @@
         
           <div class="ids__text-width ">
             <div class="ids__space s"></div>
-            <img src="assets/BCS_logo.svg" class="logo">
+            <img src="assets/BCS_logo.svg" class="logo" style="padding-bottom: 0.5em;">
             <p class="caption" style="color: rgba(var(--ids__text-mute-RGB), 1);">Российская компания, предоставляющая клиентам брокерские и&#160;инвестиционные услуги (операции на фондовом 
               и&#160;финансовом рынках, управление активами, финансовое консультирование)</p></div>
               <div class="ids__space L"></div> 
@@ -90,7 +99,7 @@
         
               <div class="ids__space L"></div>
               <div class="video-container">
-              <video autoplay loop muted playsinline>
+              <video loop muted playsinline preload="metadata">
               <source src="assets/video-1.mp4" type="video/mp4"></video>
               </div>
 
@@ -111,11 +120,11 @@
        
           <div class="ids__space L"></div> 
           <figure class="custome">
-            <img src="assets/img-1.png" loading="lazy"></figure>
+            <img src="assets/img-1.png" loading="lazy" decoding="async"></figure>
             
             <div class="ids__space s"></div> 
           <figure class="custome">
-            <img src="assets/img-2.png" loading="lazy"></figure>
+            <img src="assets/img-2.png" loading="lazy" decoding="async"></figure>
           
           <div class="ids__text-width ">
           <div class="ids__space L"></div> 
@@ -131,7 +140,7 @@
           <div class="ids__space L"></div>
           
           <figure class="custome">
-          <img src="assets/img-3.png" loading="lazy"></figure>
+          <img src="assets/img-3.png" loading="lazy" decoding="async"></figure>
 
           <div class="ids__space L"></div>
 
@@ -152,7 +161,7 @@
           <div class="ids__space L"></div>
           
           <figure class="custome">
-          <img src="assets/img-4.png" loading="lazy"></figure>
+          <img src="assets/img-4.png" loading="lazy" decoding="async"></figure>
           
           <div class="ids__space s"></div> 
 
@@ -207,6 +216,40 @@
     </div>
     </main>
 <script src="../../lib/kaliningrad-time-weather.js" defer></script>
+<script>
+  (function() {
+    if (!('IntersectionObserver' in window)) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const videos = document.querySelectorAll('.video-container video');
+    if (!videos.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          if (video.paused) {
+            video.play().catch(() => {});
+          }
+        } else {
+          if (!video.paused) {
+            video.pause();
+          }
+        }
+      });
+    }, { threshold: [0.5] });
+
+    videos.forEach((video) => observer.observe(video));
+  })();
+</script>
 
 <footer class="footer">
   <div class="footer__container">
@@ -259,7 +302,7 @@
   </div>
 </footer>
     
-    <script src="../../lib/version.js"></script>
+    <script src="../../lib/version.js" defer></script>
 
   </body>
 </html>
