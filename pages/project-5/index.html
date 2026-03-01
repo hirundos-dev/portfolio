@@ -12,6 +12,15 @@
     <title>NDA / Портфолио Андрей Лынник</title>
     <link rel="icon" type="image/png" href="../../images/favicon-inverted.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
+    <link rel="preconnect" href="https://api.open-meteo.com" crossorigin />
+    <link
+      rel="preload"
+      href="../../fonts/pt-root-ui_vf.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="../../css/colors.css" />
     <link rel="stylesheet" href="../../css/normalize.css" />
     <link rel="stylesheet" href="../../css/settings.css" />
@@ -98,15 +107,15 @@
             <div class="ids__space s"></div>        
             
             <div class="video-container">
-            <video autoplay loop muted playsinline>
+            <video loop muted playsinline preload="metadata">
             <source src="assets/video-1.mp4" type="video/mp4"></video>
             </div>
        
        
           <div class="ids__space L"></div> 
-
+          
           <div><figure class="custome">
-          <img src="assets/img-1.png" loading="lazy">
+          <img src="assets/img-1.png" loading="lazy" decoding="async">
           </figure>
           <figcaption style="font-size:large;">Категории объявлений</figcaption></div>
             
@@ -114,7 +123,7 @@
           
           <div>
           <figure class="custome">
-          <img src="assets/img-2.png" loading="lazy">
+          <img src="assets/img-2.png" loading="lazy" decoding="async">
           </figure>
         <figcaption style="font-size:large;">Выбор местоположения</figcaption></div>
           
@@ -127,7 +136,7 @@
             </div> 
 <div class="ids__space s"></div>
             <div><figure class="custome">
-          <img src="assets/img-3.png" loading="lazy">
+          <img src="assets/img-3.png" loading="lazy" decoding="async">
           </figure>
           <figcaption style="font-size:large;">Авторизация</figcaption></div>
             
@@ -135,7 +144,7 @@
           
           <div>
           <figure class="custome">
-          <img src="assets/img-4.png" loading="lazy">
+          <img src="assets/img-4.png" loading="lazy" decoding="async">
           </figure>
         <figcaption style="font-size:large;">Регистрация самозанятого</figcaption></div>
 
@@ -148,7 +157,7 @@
             </div> 
 <div class="ids__space s"></div>
             <div><figure class="custome">
-          <img src="assets/img-5.png" loading="lazy">
+          <img src="assets/img-5.png" loading="lazy" decoding="async">
           </figure>
           <figcaption style="font-size:large;">Список объявлений</figcaption></div>
             
@@ -156,7 +165,7 @@
           
           <div>
           <figure class="custome">
-          <img src="assets/img-6.png" loading="lazy">
+          <img src="assets/img-6.png" loading="lazy" decoding="async">
           </figure>
         <figcaption style="font-size:large;">Адаптивная версия и&nbsp;кнопка фильтра</figcaption></div>
 
@@ -172,15 +181,15 @@
             <div class="ids__space s"></div>        
             
             <div class="video-container">
-            <video autoplay loop muted playsinline>
+            <video loop muted playsinline preload="metadata">
             <source src="assets/video-2.mp4" type="video/mp4"></video>
             </div>
        
        
           <div class="ids__space L"></div> 
-
+          
           <div><figure class="custome">
-          <img src="assets/img-7.png" loading="lazy">
+          <img src="assets/img-7.png" loading="lazy" decoding="async">
           </figure>
           <figcaption style="font-size:large;">Адаптивная версия</figcaption></div>
             
@@ -193,15 +202,15 @@
             <div class="ids__space s"></div>        
             
             <div class="video-container">
-            <video autoplay loop muted playsinline>
+            <video loop muted playsinline preload="metadata">
             <source src="assets/video-3.mp4" type="video/mp4"></video>
             </div>
        
        
           <div class="ids__space L"></div> 
-
+          
           <div><figure class="custome">
-          <img src="assets/img-8.png" loading="lazy">
+          <img src="assets/img-8.png" loading="lazy" decoding="async">
           </figure>
           <figcaption style="font-size:large;">Есть возможность оставить жалобу</figcaption></div>
 
@@ -214,7 +223,7 @@
             <div class="ids__space s"></div>        
             
           <figure class="custome">
-          <img src="assets/img-9.png" loading="lazy">
+          <img src="assets/img-9.png" loading="lazy" decoding="async">
           </figure>
               
            </div>
@@ -249,6 +258,40 @@
     </div>
     </main>
 <script src="../../lib/kaliningrad-time-weather.js" defer></script>
+<script>
+  (function() {
+    if (!('IntersectionObserver' in window)) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const videos = document.querySelectorAll('.video-container video');
+    if (!videos.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          if (video.paused) {
+            video.play().catch(() => {});
+          }
+        } else {
+          if (!video.paused) {
+            video.pause();
+          }
+        }
+      });
+    }, { threshold: [0.5] });
+
+    videos.forEach((video) => observer.observe(video));
+  })();
+</script>
 
 <footer class="footer">
   <div class="footer__container">
@@ -301,7 +344,7 @@
   </div>
 </footer>
     
-    <script src="../../lib/version.js"></script>
+    <script src="../../lib/version.js" defer></script>
 
   </body>
 </html>
