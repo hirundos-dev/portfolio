@@ -1,15 +1,11 @@
 .ids__navbar {    
     display: block;
     position: fixed;
-    top: 4em;
-    left: 0.5em;
+    top: 0.3em;
+    left: 0.3em;
     z-index: 1;
-    border-radius: 0.5em;
-    background-color:rgba(var(--ids__background-card-RGB), 1);
-    padding: 0.5em 0.5em 0 0.5em;
 
-
-    @media (width < 767px) { 
+    @media (width < 768px) { 
         position: static;
         margin: 1em 0;
 
@@ -27,7 +23,7 @@
         content: '';
     }
 
-    @media (width < 767px) { 
+    @media (width < 768px) { 
         font-size: 1em;
     }
     
@@ -36,13 +32,9 @@
         border-radius: 0.2em;
         display: block;
         text-decoration: none;
-        color: rgba(var(--ids__text-RGB), 1);
 
-        @media (width < 767px) { 
+        @media (width < 768px) { 
             padding: 0.2em 0;
-        }
-        &:hover {
-            color: rgba(var(--ids__mark-RGB), 1);
         }
     }
 }
@@ -50,15 +42,15 @@
 .ids__navbar .current {
 
     a {
-        background-color: rgba(var(--ids__mark-RGB), 0.2);
+        background-color: rgba(var(--ids__link-RGB), 0.1);
 
-        @media (width < 767px) { 
+        @media (width < 768px) { 
             background-color: transparent;
         }
 
         &:hover {
-            background-color:rgba(var(--ids__mark-RGB), 0.3);
-            @media (width < 767px) { 
+            background-color: rgba(var(--ids__hover-RGB), 0.1);
+            @media (width < 768px) { 
             background-color: transparent;
         }
         }
