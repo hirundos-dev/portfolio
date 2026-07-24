@@ -4,6 +4,30 @@ All project changes are recorded here. Each entry follows the safe-fix protocol 
 
 ---
 
+### 2026-07-24 — Meta tags: unique titles and descriptions for all pages
+
+| | |
+|---|---|
+| 🔍 Root Case | 6 case страниц имели generic og:description ("Дизайнер интерфейсов..."), <title> содержал "— Андрей Лынник", og:title не совпадал с <title>. |
+| 🔧 Fix | **<title>:** убрано "— Андрей Лынник", оставлено только название проекта. **og:title:** совпадает с <title>. **og:description:** уникальный для каждой страницы, совпадает с <meta name="description">. **<meta name="description">:** убран префикс с названием проекта (если был дубль с title). |
+| 📡 Blast Zone | `pages/bcs-1/index.html`, `pages/bcs-2/index.html`, `pages/med-1/index.html`, `pages/nda-1/index.html`, `pages/finance/index.html`, `pages/palka/index.html` |
+| ⚠️ Risks | None — мета-теги не влияют на функциональность, только SEO/social sharing. |
+| ✅ How to Verify | Grep: 7 уникальных og:description. Все <title> содержат только название проекта (без "— Андрей Лынник"). |
+
+---
+
+### 2026-07-24 — emerge.js spinner + lazy video via IntersectionObserver
+
+| | |
+|---|---|
+| 🔍 Root Cause | Emerge.js подключен только на 3 из 6 case страниц, оборачивает только cover. ВидеоHave `autoplay` — загружаются и играют сразу вне viewport. observer.js существовал но не подключен. |
+| 🔧 Fix | **observer.js:** добавлена поддержка видео — `play()` при входе в viewport, `pause()` при выходе. `.ids__snooze` поддержка сохранена. **emerge.js:** подключен на все 7 страниц. На case страницах — `<div class="emerge">` без `ids__wrapper`. На index.html — `<div class="ids__wrapper emerge">` только для блока с проектами. **observer.js:** подключен на 4 страницы с видео (bcs-1, bcs-2, med-1, nda-1). **autoplay:** удалён со всех 9 `<video>` тегов. |
+| 📡 Blast Zone | `js/observer.js`, `index.html`, `pages/bcs-1/index.html`, `pages/bcs-2/index.html`, `pages/med-1/index.html`, `pages/nda-1/index.html`, `pages/finance/index.html`, `pages/palka/index.html` |
+| ⚠️ Risks | emerge.js в `<head>` без `defer` — блокирует рендер, intended behavior (предотвращает FOUC). Видео могут буферизоваться при первом play() на медленном интернете. |
+| ✅ How to Verify | Grep: 0 `autoplay` в HTML. 6 emerge wrappers на case страницах. 4 observer.js подключения. Все `<video>` have `loop muted playsinline preload="metadata"`. |
+
+---
+
 ### 2026-07-22 — Documentation cleanup: removed Android/data-platform configs
 
 | | |
