@@ -4,6 +4,18 @@ All project changes are recorded here. Each entry follows the safe-fix protocol 
 
 ---
 
+### 2026-07-31 — Yandex Metrika counter + mobile footer menu wrap
+
+| | |
+|---|---|
+| 🔍 Root Cause | **1) Metrika:** счётчик отсутствовал — на сайте не собиралась статистика. **2) Footer mobile:** `.horizontal-menu` (`css/ids.css`) — `display:flex` без `flex-wrap`; 4 ссылки с «↗» (~315px) не помещаются в 320px, перенос происходил внутри `<li>`. |
+| 🔧 Fix | **1) Metrika:** блок счётчика `104377141` (script + noscript) вставлен в `<head>` сразу после `<meta charset>` во все 7 HTML-страниц. **2) Footer:** в `.horizontal-menu` добавлен `flex-wrap: wrap;`. Вертикальный отступ между рядами даёт существующий `gap: 1em`. |
+| 📡 Blast Zone | `index.html`, `pages/bcs-1/index.html`, `pages/bcs-2/index.html`, `pages/med-1/index.html`, `pages/nda-1/index.html`, `pages/finance/index.html`, `pages/palka/index.html`, `css/ids.css` |
+| ⚠️ Risks | Metrika: async-скрипт в `<head>` — не влияет на LCP. Footer: на десктопе (>767px) ссылки помещаются в одну строку, перенос не срабатывает — поведение не меняется. |
+| ✅ How to Verify | Grep: `mc.yandex.ru/metrika/tag.js?id=104377141` в 7 файлах, `mc.yandex.ru/watch/104377141` в 7 noscript. Проверка вёрстки на 320px: меню переносится в 2 ряда без переполнения. |
+
+---
+
 ### 2026-07-24 — Meta tags: unique titles and descriptions for all pages
 
 | | |

@@ -389,6 +389,7 @@
 
 & .horizontal-menu {
   display: flex;
+  flex-wrap: wrap;
   gap: 1em;
   margin: 0;
   padding: 0;
