@@ -7,7 +7,7 @@ I'm a product designer. I love solving complex interface problems, exploring new
 
 ### Demo
 
-https://hirundos-dev.github.io/portfolio-new/
+https://hirundos-dev.github.io/portfolio/
 
 ### License
 
